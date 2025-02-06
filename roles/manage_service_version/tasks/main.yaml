@@ -1,0 +1,21 @@
+---
+- name: Update the package cache
+  apt:
+    update_cache: yes
+
+- name: Installing the Services with Specific Versions
+  apt:
+    name: "{{ service }}={{ version }}"
+    state: present
+
+- name: Starting Nginx
+  service:
+    name: nginx
+    state: started
+  when: "'{{ service }}' == 'nginx'"
+
+- name: Starting MySQL
+  service:
+    name: mysql
+    state: started
+  when: "'{{ service }}' == 'mysql-server'"

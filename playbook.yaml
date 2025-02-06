@@ -1,0 +1,8 @@
+---
+- name: Manage EC2 Instances
+  hosts: all
+  become: yes
+  roles:
+    - manage_hostname
+    - manage_service_version
+    - manage_restart

@@ -1,0 +1,11 @@
+---
+- name: Creating a Crontab Record
+  cron:
+    name: "Restart Server"
+    job: "shutdown -r now"
+    minute: "{{ restart.split()[0] }}"
+    hour: "{{ restart.split()[1] }}"
+    day: "{{ restart.split()[2] }}"
+    month: "{{ restart.split()[3] }}"
+    weekday: "{{ restart.split()[4] }}"
+    user: root

@@ -1,0 +1,9 @@
+plugin: amazon.aws.aws_ec2
+aws_profile: default
+regions: # update with the regions used in your AWS account
+  - us-east-1
+filters:
+  tag:Owner: elad
+  tag:Managed: true 
+compose:
+  ansible_host: public_ip_address
